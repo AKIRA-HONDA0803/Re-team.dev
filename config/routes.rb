@@ -11,15 +11,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'order_products/update'
   end
-  namespace :adomin do
+  namespace :admin do
     get 'orders/show'
     get 'orders/update'
   end
-  namespace :adomin do
-    get 'oders/show'
-    get 'oders/update'
-  end
-  namespace :adomin do
+  namespace :admin do
     get 'members/index'
     get 'members/show'
     get 'members/edit'
