@@ -23,5 +23,19 @@ Rails.application.routes.draw do
     get 'members/edit'
     get 'members/update'
   end
+  # namespace :admin do
+  #   get 'genres/index'
+  #   get 'genres/create'
+  #   get 'genres/edit'
+  #   get 'genres/update'
+  # end
+   namespace :admin do
+    root to: 'homes#top'
+   end
+  namespace :admin do
+    get 'sessions/new'
+    get 'sessions/create'
+    get 'sessions/destroy'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
