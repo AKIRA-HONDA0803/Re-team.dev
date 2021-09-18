@@ -1,7 +1,7 @@
 class Admin::GenresController < ApplicationController
-
-
- def incex
+ def index
+  @genres = Genre.all
+  @genre = Genre.new
  end
 
  def create
