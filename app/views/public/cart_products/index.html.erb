@@ -1,0 +1,58 @@
+ <h1>ショッピングカート</h1>
+ <%= link_to cart_products_destroy_all_path, method: :delete, class: "btn btn-outline-danger" do %>
+ <h2>カートを空にする</h2>
+ <% end %>
+ <table class="table table-hover table-inverse">
+    <thread>
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+      <tbody>
+        <% @cart_products.each do |cart_product| %>
+          <tr>
+            <td>
+              <%= cart_product.product.name %>
+            </td>
+            <td>
+              <%= cart_product.product.include_tax.round %>
+            </td>
+            <td>
+              <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch, local: true do |f| %>
+                <%= f.select :total_price, @numbers %>
+                <%= f.submit '変更' %>
+              <% end %>
+            </td>
+            <td>
+              <%= (cart_product.product.include_tax*cart_product.total_price).round %>
+              <% @sum += (cart_product.product.include_tax*cart_product.total_price).round %>
+            </td>
+            <td>
+              <%= link_to cart_product_path(cart_product), method: :delete, class: "btn btn-outline-danger" do %>
+              <i class="fas fa-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thread>
+  </table>
+
+  
+    <%= link_to root_path, class: "btn btn-outline-secondary" do %>
+      <h3>買い物を続ける</h3>
+    <% end %>
+    <tr>
+      <th>合計金額</th>
+      <th>￥<%= @sum %></th>
+    </tr>
+
+ 
+    <%= link_to new_orders_path, class: "btn btn-info" do %>
+      <h1>情報入力に進む</h1>
+    <% end %>
+</div>
+ 
