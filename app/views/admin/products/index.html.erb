@@ -1,2 +1,9 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<h1>商品一覧</h1>
+<% @products.each do |product| %>
+<%= product.id %>
+<%= pruduct.name %>
+<%= product.price %>
+<%= product.genre_id %>
+<%= product.product_status %>
+
+<% end %>
