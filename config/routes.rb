@@ -20,22 +20,26 @@ Rails.application.routes.draw do
   passwords:     'public/passwords',
   registrations: 'public/registrations'
 }
-  get 'members/unsubscribe' => 'public/members#unsubscribe'
-  patch 'members/withdraw' => 'public/members#withdraw'
-  resources :members, only: [:show, :edit, :update]
+  scope module: :public do
+    get 'members/my_page' => 'members#show'
+    get 'members/edit' => 'members#edit'
+    patch 'members' => 'members#update'
+    get 'members/unsubscribe' => 'members#unsubscribe'
+    patch 'members/withdraw' => 'members#withdraw'
 
-  post 'orders/confirm' => 'public/orders#confirm'
-  get 'orders/complete' => 'public/orders#complete'
-  resources :orders, only: [:index, :show, :new, :create]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+    resources :orders, only: [:index, :show, :new, :create]
 
-  delete 'cart_products/destroy_all' => 'public/cart_products#destroy_all'
-  resources :cart_products, only: [:index, :create, :destroy, :update]
+    delete 'cart_products/destroy_all' => 'cart_products#destroy_all'
+    resources :cart_products, only: [:index, :create, :destroy, :update]
 
-  resources :addresses, except: [:show, :new]
+    resources :addresses, except: [:show, :new]
 
-  resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show]
 
-  get 'about' => 'public/homes#about'
-  root to: 'public/homes#top'
+    get 'about' => 'homes#about'
+    root to: 'homes#top'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
