@@ -15,11 +15,6 @@ Rails.application.routes.draw do
     root to: 'homes#top'
   end
 
-  devise_for :members, controllers: {
-  sessions:      'public/sessions',
-  passwords:     'public/passwords',
-  registrations: 'public/registrations'
-}
   scope module: :public do
     get 'members/my_page' => 'members#show'
     get 'members/edit' => 'members#edit'
@@ -41,5 +36,10 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     root to: 'homes#top'
   end
+    devise_for :members, controllers: {
+    sessions:      'public/sessions',
+    passwords:     'public/passwords',
+    registrations: 'public/registrations'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
