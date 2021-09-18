@@ -1,1 +1,10 @@
-<h1>商品show</h1>
+
+<h1>商品詳細</h1>
+<div>
+  <%= attachment_image_tag @product, :image_id %>
+  <p>商品名：<%= @product.name %></p>
+  <p>商品説明：<%= @product.description %></p>
+  <p>ジャンル：<%= @product.genre_id %></p>
+  <p>税抜価格：<%= @product.price %></p>
+  <p>販売ステータス：<%= @product.product_status %></p>
+</div>
