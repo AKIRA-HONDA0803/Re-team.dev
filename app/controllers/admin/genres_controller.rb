@@ -12,13 +12,20 @@ class Admin::GenresController < ApplicationController
       flash[:genre_error] = "ジャンル名を入力してください"
     redirect_to
     end
-    # redirect_to "admin/genres"
  end
 
  def edit
+  @genre = Genre.find(params[:id])
  end
 
  def update
+  @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
+      redirect_to admin_genres_path
+      flash[:notice_update] = "ジャンル情報を更新しました"
+    else
+      render 'edit'
+    end
  end
  private
 

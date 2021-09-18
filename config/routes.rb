@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'members/update'
   end
   namespace :admin do
-   resources :genres, only: [:new, :create, :index, :show, :destroy]
+   resources :genres, only: [:create, :index, :edit, :update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
