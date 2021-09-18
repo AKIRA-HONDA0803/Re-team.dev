@@ -1,8 +1,10 @@
 class Admin::ProductsController < ApplicationController
  def index
+  @products = Product.all
  end
 
  def show
+  @product = Product.find(params[:id])
  end
 
  def edit
@@ -12,6 +14,7 @@ class Admin::ProductsController < ApplicationController
  end
 
  def new
+  @product = Product.new
  end
 
  def create
@@ -19,4 +22,10 @@ class Admin::ProductsController < ApplicationController
 
  def destroy
  end
+  private
+
+  def product_params
+    params.require(:product).permit(:genre_id, :name, :description, :product_status, :image_id, :price, :created_at, :updated_at)
+  end
+
 end

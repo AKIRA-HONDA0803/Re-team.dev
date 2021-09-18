@@ -1,1 +1,9 @@
 <h1>商品一覧</h1>
+<% @products.each do |product| %>
+<%= product.id %>
+<%= pruduct.name %>
+<%= product.price %>
+<%= product.genre_id %>
+<%= product.product_status %>
+
+<% end %>
