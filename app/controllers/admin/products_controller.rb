@@ -8,6 +8,7 @@ class Admin::ProductsController < ApplicationController
  end
 
  def edit
+  @product = Product.find(params[:id])
  end
 
  def update
@@ -18,6 +19,13 @@ class Admin::ProductsController < ApplicationController
  end
 
  def create
+  @product = Product.new(product_params)
+  if @product.save
+      redirect_to admin_products_path
+  else
+      flash[:error] = "入力してください"
+      redirect_to new_admin_product_path
+  end
  end
 
  def destroy
