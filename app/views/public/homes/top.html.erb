@@ -1,0 +1,10 @@
+<h1>top</h1>
+    <% if member_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "ログイン", new_member_session_path %>
+      </li>
+    <% end %>
