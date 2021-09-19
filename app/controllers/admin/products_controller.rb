@@ -12,6 +12,13 @@ class Admin::ProductsController < ApplicationController
  end
 
  def update
+  @product = Product.find(params[:id])
+  if @product.update
+     redirect_to admin_products_path
+  else
+   flash[:error] = "入力してください"
+      redirect_to 'edit'
+  end
  end
 
  def new
@@ -33,7 +40,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:genre_id, :name, :description, :product_status, :image_id, :price, :created_at, :updated_at)
+    params.require(:product).permit(:genre_id, :name, :description, :product_status, :image, :price, :created_at, :updated_at)
   end
 
 end

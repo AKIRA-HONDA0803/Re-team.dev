@@ -24,5 +24,15 @@ Genre.create!(
     {
       name: 'キャンディ'
     }
+
   ]
 )
+
+　Product.create!(
+  name: 'なめらかプリン',
+  description: '生クリームを使ってコクがしっかりと感じられる絶品プリンです。',
+  genre_id: 2,
+  price: 500,
+  product_status: true,
+  image: File.open("./app/assets/images/pudding1.jpg")
+  )
