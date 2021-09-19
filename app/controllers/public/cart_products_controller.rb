@@ -1,8 +1,9 @@
 class Public::CartProductsController < ApplicationController
 
  def index
- 
+
   @cart_products = CartProduct.where(member_id: current_member.id)
+  @numbers = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
  end
 
   def create
@@ -37,7 +38,7 @@ class Public::CartProductsController < ApplicationController
     cart_products.destroy_all
     redirect_to cart_products_path
   end
-  
+
     private
   def cart_product_params
     params.require(:cart_product).permit(:product_id, :member_id, :total_price)

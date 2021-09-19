@@ -12,6 +12,7 @@
         <th></th>
       </tr>
       <tbody>
+        <% @sum = 0 %>
         <% @cart_products.each do |cart_product| %>
           <tr>
             <td>
@@ -22,8 +23,8 @@
             </td>
             <td>
               <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch, local: true do |f| %>
-                <%= f.select :total_price, @numbers %>
-                <%= f.submit '変更' %>
+              <%= f.select :total_price, @numbers %>
+              <%= f.submit '変更' %>
               <% end %>
             </td>
             <td>
@@ -41,7 +42,7 @@
     </thread>
   </table>
 
-
+   <div class="d-flex justify-content-between m-5">
     <%= link_to root_path, class: "btn btn-outline-secondary" do %>
       <h3>買い物を続ける</h3>
     <% end %>
@@ -51,7 +52,10 @@
     </tr>
 
 
-    <%= link_to new_orders_path, class: "btn btn-info" do %>
+    <%#= link_to new_orders_path, class: "btn btn-info" do %>
       <h1>情報入力に進む</h1>
-    <% end %>
+    <%# end %>
+    </div>
 </div>
+<!--買い物を続ける-->
+<!--情報入力に進むリンク先修正する-->
