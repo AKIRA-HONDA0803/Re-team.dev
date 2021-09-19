@@ -1,2 +1,15 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+
+<h1>商品詳細</h1>
+<div>
+  <%= attachment_image_tag @product, :image_id %>
+  <p>商品名：<%= @product.name %></p>
+  <p>商品説明：<%= @product.description %></p>
+  <p>ジャンル：<%= @product.genre.name %></p>
+  <p>税抜価格：<%= @product.price %></p>
+  <p>販売ステータス：
+     <% if @product.product_status == true %>
+          販売中
+     <% else %>
+          販売停止中
+     <% end %></p>
+</div>
