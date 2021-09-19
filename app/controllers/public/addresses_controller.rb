@@ -19,8 +19,12 @@ class Public::AddressesController < ApplicationController
 
  def update
   @address = Address.find(params[:id])
-  @address.update(address_params)
-  flash[:success] = "配送先を変更しました"
+  if @address.update(address_params)
+   flash[:success] = "配送先を変更しました"
+   redirect_to members_addresses_path
+  else
+   render "edit"
+  end
  end
 
  def destroy
@@ -29,7 +33,7 @@ class Public::AddressesController < ApplicationController
   @addresses = current_member_address.shipping_address
   flash.now[:alert] = "配送先を削除しました"
  end
- 
+
  private
  def address_params
   params.require(:address).permit(:postal_code, :address, :name)

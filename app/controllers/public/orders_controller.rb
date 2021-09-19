@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
  def create
   @order = current_member.orders.new(order_params)
   @order.save
-  flash[:notice] = "ご注文が確認しました。"
+  flash[:notice] = "ご注文を確認しました。"
  end
 
  def confirm

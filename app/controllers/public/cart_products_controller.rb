@@ -19,6 +19,7 @@ class Public::CartProductsController < ApplicationController
    @product = Product.find(params[:cart_product][:product_id])
    @cart_product = CartProduct.new
    flash[:alert] = "個数を選択してください"
+   render("members/products/show")
    end
  end
 

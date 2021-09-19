@@ -10,8 +10,12 @@ class Public::MembersController < ApplicationController
 
  def update
   @member = current_membe
-  @member.update(member_params)
-  flash[:success] = "変更しました"
+  if @member.update(member_params)
+     flash[:success] = "変更しました"
+     redirect_to  members_path
+  else
+   render :edit and return
+  end
  end
 
  def unsubscribe
