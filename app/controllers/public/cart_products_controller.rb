@@ -3,7 +3,6 @@ class Public::CartProductsController < ApplicationController
  def index
   @cart_products = CartProduct.where(member_id: current_member.id)
   @numbers = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-  #@cart_products = current_cart
  end
 
  def create
@@ -25,7 +24,6 @@ class Public::CartProductsController < ApplicationController
  end
 
 #   def create
-
 #     @cart_products = CartProduct.where(customer_id: current_customer.id)
 #     @cart_products.each do |cart_product|
 #       if cart_product.product_id == @cart_product.product_id
