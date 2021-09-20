@@ -11,3 +11,9 @@
           販売停止中</p>
 </div>
  <% end %>
+
+        <%= form_with model: @cart_product,url: create_cart_products_path, local:true do |f| %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.select :quantity, options_for_select((1..20).to_a), include_blank: "個数選択" %>
+        <%= f.submit "カートに入れる" %>
+      <% end %>

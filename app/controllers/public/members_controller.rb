@@ -1,5 +1,4 @@
 class Public::MembersController < ApplicationController
-  before_action :configure_permitted_parameters, if: :members_controller?
 
  def show
   @member = current_member
