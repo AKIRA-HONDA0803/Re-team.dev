@@ -1,4 +1,3 @@
-<% provide(:title, "注文履歴一覧") %>
 <div calss="row">
   <div class="col-xs-12">
     <h2 class="head-line title_h2 text-center">注文履歴一覧</h2>
@@ -26,12 +25,12 @@
     		          <%= order.name %>
     		        </td>
     		        <td>
-    		          <% order.order_products.each do |order_product| %>
-    		          	<%= order_product.product.name %><br>
+    		          <% order.order_details.each do |order_product| %>
+    		          	<%= order_.product.name %><br>
     		          <% end %>
     		        </td>
     		        <td class="text-right">
-    		          <%= order.total_price.to_s(:delimited) %>円
+    		          <%= order.bill.to_s(:delimited) %>円
     		        </td>
     		        <td>
     		          <%= order.order_status %>
