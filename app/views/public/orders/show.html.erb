@@ -60,9 +60,9 @@
         	<% @order_details.each do |order_detail| %>
             <tr>
   	        <td><%= order_detail.product.name %></td>
-  	        <td class="text-right"><%#= tax_price(order_detail.product.tax_out_price).to_s(:delimited) %>円</td>
+  	        <td class="text-right"><%= (@product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</td>
   	        <td class="text-right"><%= order_detail.quantity %></td>
-  	        <td class="text-right"><%= sub_price(order_detail).to_s(:delimited) %>円</td>
+  	        <td class="text-right"><%= (order_detail).to_s(:delimited) %>円</td>
             </tr>
           <% end %>
           </tbody>

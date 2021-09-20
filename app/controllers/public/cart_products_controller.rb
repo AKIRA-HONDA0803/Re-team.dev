@@ -3,7 +3,7 @@ class Public::CartProductsController < ApplicationController
  def index
   @cart_products = CartProduct.where(member_id: current_member.id)
   @numbers = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-  @cart_products = current_cart
+  #@cart_products = current_cart
  end
 
  def create
@@ -13,7 +13,7 @@ class Public::CartProductsController < ApplicationController
    @cart_product.quantity += @update_cart_prduct.quantity
    @update_cart_prduct.destroy
    end
-   
+
    if @cart_product.save
    flash[:notice] = "#{@cart_product.product.name}をカートに追加しました"
    else
@@ -25,7 +25,7 @@ class Public::CartProductsController < ApplicationController
  end
 
 #   def create
-   
+
 #     @cart_products = CartProduct.where(customer_id: current_customer.id)
 #     @cart_products.each do |cart_product|
 #       if cart_product.product_id == @cart_product.product_id
@@ -58,7 +58,7 @@ class Public::CartProductsController < ApplicationController
     redirect_to cart_products_path
   end
 
-   
+
 
 #   @cart_product.destroy
 #   flash.now[:alert] = "#{@cart_product.product.name}を削除しました"
@@ -74,7 +74,7 @@ class Public::CartProductsController < ApplicationController
 #   @total = total_price(@cart_products).to_s(:delimited)
 #  end
 
- 
+
 
  private
   def cart_product_params
