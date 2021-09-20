@@ -60,7 +60,7 @@
         	<% @order_details.each do |order_detail| %>
             <tr>
   	        <td><%= order_detail.product.name %></td>
-  	        <td class#="text-right"><%#= tax_price(order_detail.product.tax_out_price).to_s(:delimited) %>円</td>
+  	        <td class="text-right"><%#= tax_price(order_detail.product.tax_out_price).to_s(:delimited) %>円</td>
   	        <td class="text-right"><%= order_detail.quantity %></td>
   	        <td class="text-right"><%= sub_price(order_detail).to_s(:delimited) %>円</td>
             </tr>
@@ -68,10 +68,10 @@
           </tbody>
         </table>
     </div>
-    <% if customer_signed_in? %>
-      <%= link_to "注文履歴一覧へ戻る", customers_orders_path, class: "btn btn-info btn-lg order-index-back" %>
+    <% if member_signed_in? %>
+      <%= link_to "注文履歴一覧へ戻る", members_orders_path, class: "btn btn-info btn-lg order-index-back" %>
     <% else %>
-      <%= link_to "会員詳細へ戻る", admin_customer_path, class: "btn btn-info order-index-back" %>
+      <%= link_to "会員詳細へ戻る", admin_member_path, class: "btn btn-info order-index-back" %>
     <% end %>
   <% else %>
     <p>注文履歴がありません。</p>
