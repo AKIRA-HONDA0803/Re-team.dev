@@ -2,11 +2,10 @@ class Public::CartProductsController < ApplicationController
 
  def index
   @cart_products = CartProduct.where(member_id: current_member.id)
-  @numbers = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
  end
 
  def create
-  @cart_product = current_member.CartProduct.new(cart_product_params)
+  @cart_product = current_member.cart_products.new(cart_product_params)
   @update_cart_prduct =  CartProduct.find_by(product: @cart_product.product)
    if @update_cart_prduct.present? && @cart_product.valid?
    @cart_product.quantity += @update_cart_prduct.quantity
@@ -15,12 +14,20 @@ class Public::CartProductsController < ApplicationController
 
    if @cart_product.save
    flash[:notice] = "#{@cart_product.product.name}をカートに追加しました"
+   redirect_to "/products"
    else
    @product = Product.find(params[:cart_product][:product_id])
    @cart_product = CartProduct.new
    flash[:alert] = "個数を選択してください"
-   render("members/products/show")
+   redirect_to "/products"
    end
+ end
+
+ def update
+  @cart_product = CartProduct.find(params[:id])
+    @cart_product.update(cart_product_params)
+   redirect_to cart_products_path
+
  end
 
 #   def create
@@ -37,16 +44,9 @@ class Public::CartProductsController < ApplicationController
 #   end
 
  def destroy
-　 cart_product = CartProduct.find(params[:id])
-   cart_product.destroy
-  redirect_to cart_products_path
- end
-
- def update
   @cart_product = CartProduct.find(params[:id])
-   if @cart_product.update(cart_product_params)
-   redirect_to cart_products_path
-   end
+  @cart_product.destroy
+  redirect_to cart_products_path
  end
 
   def destroy_all
@@ -76,7 +76,7 @@ class Public::CartProductsController < ApplicationController
 
  private
   def cart_product_params
-   params.require(:cart_product).permit(:quantity, :product_id, :member_id)
+   params.require(:cart_product).permit(:quantity, :product_id)
   end
 
 end
