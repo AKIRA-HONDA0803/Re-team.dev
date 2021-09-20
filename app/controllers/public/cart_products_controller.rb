@@ -3,7 +3,6 @@ class Public::CartProductsController < ApplicationController
  def index
   @cart_products = CartProduct.where(member_id: current_member.id)
   @numbers = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-  # @cart_products = current_cart
  end
 
  def create
@@ -13,7 +12,7 @@ class Public::CartProductsController < ApplicationController
    @cart_product.quantity += @update_cart_prduct.quantity
    @update_cart_prduct.destroy
    end
-   
+
    if @cart_product.save
    flash[:notice] = "#{@cart_product.product.name}をカートに追加しました"
    else
