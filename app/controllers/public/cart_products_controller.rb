@@ -31,7 +31,6 @@ class Public::CartProductsController < ApplicationController
  end
 
 #   def create
-
 #     @cart_products = CartProduct.where(customer_id: current_customer.id)
 #     @cart_products.each do |cart_product|
 #       if cart_product.product_id == @cart_product.product_id
