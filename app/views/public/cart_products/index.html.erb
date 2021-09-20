@@ -15,27 +15,17 @@
         <% @sum = 0 %>
         <% @cart_products.each do |cart_product| %>
           <tr>
-            <td>
-              <%= cart_product.product.name %>
-            </td>
-            <td>
-              <%= cart_product.product.include_tax.round %>
-            </td>
-            <td>
-              <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch, local: true do |f| %>
-              <%= f.select :total_price, @numbers %>
-              <%= f.submit '変更' %>
-              <% end %>
-            </td>
-            <td>
-              <%= (cart_product.product.include_tax*cart_product.total_price).round %>
-              <% @sum += (cart_product.product.include_tax*cart_product.total_price).round %>
-            </td>
-            <td>
-              <%= link_to cart_product_path(cart_product), method: :delete, class: "btn btn-outline-danger" do %>
-              <i class="fas fa-trash"></i>
-              <% end %>
-            </td>
+            <td><%= cart_product.product.name %></td>
+            <td><%= cart_product.product.price.to_s(:delimited, delimiter: ',') %></td>
+            <td><%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch, local: true do |f| %>
+                <%= f.number_field :quantity %>
+                <%= f.submit '変更' %>
+                <% end %></td>
+            <td><%= (cart_product.product.price*1.1).round.to_s(:delimited, delimiter: ',') %>
+                <% @sum += (cart_product.product.price*1.1).round %></td>
+            <td><%= link_to cart_product_path(cart_product), method: :delete, class: "btn btn-outline-danger" do %>
+                <i class="fas fa-trash"></i>
+                <% end %></td>
           </tr>
         <% end %>
       </tbody>
@@ -52,9 +42,9 @@
     </tr>
 
 
-    <%#= link_to new_orders_path, class: "btn btn-info" do %>
+    <%= link_to new_order_path, class: "btn btn-info" do %>
       <h1>情報入力に進む</h1>
-    <%# end %>
+    <% end %>
     </div>
 </div>
 <!--買い物を続ける-->
