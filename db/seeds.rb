@@ -156,4 +156,18 @@ Product.create!(
   image: File.open("./app/assets/images/candy7.jpg")
   )
 
-
+5.times do |n|
+    Member.create!(
+      email: "test#{n + 1}@test.com",
+      name: "テスト太郎#{n + 1}",
+      password: "111111",
+      first_name: "姓#{n + 1}",
+      last_name: "名#{n + 1}",
+      kana_first_name: "セイ#{n + 1}",
+      kana_last_name: "メイ#{n + 1}",
+      postal_code: "0000000",
+      address: "大阪市#{n + 1}丁目",
+      phone_number: "09000000000",
+      is_deleted: [['有効会員',true],['退会会員',false]]
+    )
+  end
