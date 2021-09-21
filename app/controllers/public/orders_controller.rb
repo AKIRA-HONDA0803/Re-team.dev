@@ -1,5 +1,4 @@
 class Public::OrdersController < ApplicationController
-
  def new
   @order = Order.new
   @addresses = Address.where(member: current_member)
@@ -27,15 +26,11 @@ class Public::OrdersController < ApplicationController
   @orders = current_member.orders
  end
 
-
  private
-
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_price)
   end
-
   def address_params
     params.require(:order).permit(:postal_code, :address, :name)
   end
-
 end
