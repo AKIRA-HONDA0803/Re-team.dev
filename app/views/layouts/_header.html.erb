@@ -1,0 +1,61 @@
+<header>
+  <nav class="nav navbar-nav navbar-left title">
+    <% if admin_signed_in? %>
+    <%= link_to "Naganocake",admin_root_path, class: "fas fa-birthday-cake" %>
+    <% else %>
+    <%= link_to "Naganocake",root_path, class: "fas fa-birthday-cake" %>
+    <% end %>
+  </nav>
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <% if member_signed_in? %>
+       <li class="header-name">
+         ようこそ、<%= full_name(current_member) %>さん！
+       </li>
+       <li>
+         <%= link_to "マイページ", members_my_page_path, class: "header_btn glyphicon glyphicon-home" %>
+       </li>
+       <li>
+         <%= link_to "商品一覧", products_path, class: "header_btn glyphicon glyphicon-briefcase" %>
+       </li>
+       <li>
+         <%= link_to "カート", cart_products_path,class: "header_btn glyphicon glyphicon-shopping-cart" %>
+       </li>
+       <li>
+         <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
+       </li>
+
+      <elsif admin_sign_in?>
+       <li>
+         <%= link_to "商品一覧", admin_products_path, class: "header_btn glyphicon glyphicon-briefcase" %>
+       </li>
+       <li>
+         <%= link_to "会員一覧", admin_members_path, class: "header_btn glyphicon glyphicon-user"  %>
+       </li>
+       <li>
+         <%= link_to "注文履歴一覧", admin_root_path, class: "header_btn glyphicon glyphicon-list-alt" %>
+       </li>
+       <li>
+         <%= link_to "ジャンル一覧", admin_genres_path, class: "header_btn glyphicon glyphicon-th-list" %>
+       </li>
+       <li>
+         <%= link_to "ログアウト", destroy_admin_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
+       </li>
+
+      <% else %>
+       <li>
+         <%= link_to "About", about_path, class: "header_btn glyphicon glyphicon-briefcase" %>
+       </li>
+       <li>
+         <%= link_to "商品一覧", products_path, class: "header_btn glyphicon glyphicon-briefcase" %>
+       </li>
+       <li>
+         <%= link_to "新規登録", new_member_registration_path, class: "header_btn glyphicon glyphicon-sign_up" %>
+       </li>
+       <li>
+         <%= link_to "ログイン", new_member_session_path, class: "header_btn glyphicon glyphicon-log-in" %>
+       </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
