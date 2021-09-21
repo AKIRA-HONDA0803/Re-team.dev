@@ -9,22 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-     <% if member_signed_in? %>
-      <li>
-        <%= link_to "マイページ", members_my_page_path %>
-        <%= link_to "商品一覧", products_path %>
-        <%= link_to "カート", cart_products_path %>
-        <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "About", about_path %>
-        <%= link_to "商品一覧", products_path %>
-        <%= link_to "新規登録", new_member_registration_path %>
-        <%= link_to "ログイン", new_member_session_path %>
-      </li>
-    <% end %>
+  <body="wrapper">
+    <%= render "layouts/header" %>
     <%= yield %>
   </body>
 </html>
