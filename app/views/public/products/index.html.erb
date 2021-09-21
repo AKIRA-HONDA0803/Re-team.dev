@@ -1,17 +1,26 @@
-<h1>商品一覧</h1>
-
+<div class="products-cintainer">
+<div class="products-list col-lg-8 offset-lg-2 ">
+<h1>商品一覧</h1>(全<%=@products.count %>件)
+<div class="row">
 <% @products.each do |product| %>
-    <div class="card">
-    <%= attachment_image_tag product, :image, :fill, 180, 130 %>
-    <%= link_to product.name,product_path(product)  %>
-    <%= product.price.to_s(:delimited, delimiter: ',') %>円
+<div class="card style="width: 20rem;" ">
+     <div class="card-img-top">
+    <%= attachment_image_tag product, :image,:fill, 100, 100, format: 'jpeg' %>
+    </div>
+    <div class="card-body col-lg-8">
+    <%= link_to product.name,product_path(product) %><br>
+    ￥<%= (product.price*1.1).round.to_s(:delimited, delimiter: ',') %><br>
      <% if product.product_status == true %>
           販売中
-          <% else %>
+     <% else %>
           販売停止中
-
- <% end %>
+     <% end %>
+     </div>
+     </div>
 <% end %>
 </div>
-
-
+</div>
+</div>
+</div>
+ </div>
+</div>
