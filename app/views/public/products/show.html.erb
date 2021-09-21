@@ -1,6 +1,6 @@
 <h1>商品詳細</h1>
 <div>
-  <%= attachment_image_tag @product, :image, format: 'jpeg',size: "100x100" %>
+  <%= attachment_image_tag @product, :image, format: 'jpeg',size: "180x130" %>
   <%= form_with model: @cart_product,url: cart_products_path, local:true do |f| %>
   <p>商品名：<%= @product.name %></p>
   <p>商品説明：<%= @product.description %></p>
