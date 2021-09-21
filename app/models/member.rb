@@ -16,4 +16,8 @@ class Member < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :email, presence: true
+
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end

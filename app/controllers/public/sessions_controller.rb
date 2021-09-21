@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  before_action :reject_user, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -24,4 +25,13 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+    protected
+
+  def reject_user
+    @member = Member.find_by(email: params[:member][:email].downcase)
+    if (@member.valid_password?(params[:member][:password]) && (@member.active_for_authentication? == false))
+      flash[:notice] = "退会済みです"
+      redirect_to new_member_session_path
+    end
+  end
 end

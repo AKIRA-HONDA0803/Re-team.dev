@@ -1,7 +1,7 @@
 class Public::HomesController < ApplicationController
 
  def top
-  @member = current_member
+  @products = Product.page(params[:page]).per(4).order('updated_at DESC')
  end
 
  def about
