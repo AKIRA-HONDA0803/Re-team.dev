@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 }
 
   namespace :admin do
-    resources :members, only:[:index, :show, :edit, :update]
+  resources :members, only:[:index, :show, :edit, :update]
     resources :orders, only:[:show, :update] do
       resources :order_products, only: [:update]
     end

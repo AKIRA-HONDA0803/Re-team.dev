@@ -1,1 +1,37 @@
-会員一覧
+<div class='container'>
+  <div class='row'>
+    <h4>　会員一覧　</h4>
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+        <tr>
+          <th><%= member.id %></th>
+          <td>
+            <%= link_to (member.first_name + member.last_name), member_path(member), class: "member_#{member.id}" %>
+          </td>
+          <td><%= member.email %></td>
+          <td>
+            <% if member.is_user_status %>
+              <div>退会</div>
+            <% else %>
+              <div>有効</div>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+</div>
+<!--挙動の確認まだできていません！-->
