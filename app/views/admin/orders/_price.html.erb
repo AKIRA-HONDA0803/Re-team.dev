@@ -1,3 +1,3 @@
-<p>商品合計　　　<%= @order.total_price %>円 </p>
+<p>商品合計　　　<%= @order.bill %>円 </p>
 <p>送料　　　　　<%= @order.shipping_fee %>円</p>
-<p>請求金額合計　<%= (@order.total_price+@order.shipping_feee) %>円</p>
+<p>請求金額合計　<%= @order.bill.to_i + @order.shipping_fee.to_i %>円</p>
