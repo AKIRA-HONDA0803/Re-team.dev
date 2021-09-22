@@ -2,7 +2,6 @@ class Public::ProductsController < ApplicationController
 
  def index
   @genres = Genre.all
-  # @products = Product.where(is_sale: true)
    @products = Product.all
  end
 
