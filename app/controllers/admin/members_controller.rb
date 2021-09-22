@@ -23,8 +23,8 @@ class Admin::MembersController < ApplicationController
  end
 
  private
- 	def customer_params
- 	  params.require(:member).permit(:first_name,:last_name,:kana_first_name,:kana_last_name,:postal_code,:adress,:phone_number,:email,:is_valid)
+ 	def member_params
+ 	  params.require(:member).permit(:first_name,:last_name,:kana_first_name,:kana_last_name,:postal_code,:adress,:phone_number,:email,:is_deleted)
  	end
 
 end
