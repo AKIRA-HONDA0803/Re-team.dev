@@ -37,7 +37,7 @@ class Public::AddressesController < ApplicationController
 
   if @address.update(address_params)
    flash[:success] = "配送先を変更しました"
-   redirect_to members_addresses_path
+   redirect_to addresses_path
   else
    render "edit"
   end
