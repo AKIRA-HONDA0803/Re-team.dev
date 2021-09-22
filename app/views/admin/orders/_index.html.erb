@@ -19,7 +19,7 @@
         <td>
           <%= form_with model: @order, url:admin_order_path(@order.id), method: :patch, local: true do | f | %>
             <%= f.select :making_status,["製作不可","製作待ち","製作中","製作完了"] %>
-            <%= f.submit '更新',class:"btn btn-outline-success" %>
+            <%= f.submit '更新',class: "btn btn-outline-success" %>
             <% end %>
         </td>
     </tr>
