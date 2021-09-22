@@ -16,18 +16,12 @@
           <tbody>
             <% @orders.each do |order| %>
               <tr>
-                <td>
-    		          <%= order.created_at.strftime('%Y/%m/%d') %>
-    		        </td>
+                <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
     		        <td class="text-left">
     		          <%= order.postal_code %><br>
     		          <%= order.address %><br>
-    		          <%= order.name %>
-    		        </td>
-    		        <td>
-    		          <% order.order_status.each do |order_product| %>
-    		          	<%= order_status.product.name %><br>
-    		          <% end %>
+    		          <%= order.name %></td>
+    		        <td><%= order.products.name %><br>
     		        </td>
     		        <td class="text-right"><%= order.bill.to_s(:delimited) %>円</td>
     		        <td><%= order.order_status %></td>
