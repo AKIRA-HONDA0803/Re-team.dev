@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
  def new
   @order = Order.new
+  @member = current_member
   @addresses = Address.where(member: current_member)
  end
 
@@ -16,7 +17,10 @@ class Public::OrdersController < ApplicationController
  end
 
  def confirm
-  @order = Order.find(params[:id])
+  @order = Order.new
+  @member = current_member
+  @addresses = Address.where(member_id: current_member.id)
+  @cart_products = current_member.cart_products
  end
 
  def complete
