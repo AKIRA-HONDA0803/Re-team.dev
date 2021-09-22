@@ -13,7 +13,7 @@
     <tr>
         <td><%= order_product.product.name %></td>
         <td><%= order_product.price.to_s(:delimited, delimiter: ',') %></td>
-        <td><%= order_product :quantity %></td>
+        <td><%= order_product.quantity %></td>
         <td><%= (order_product.price*1.1).round.to_s(:delimited, delimiter: ',') %>
             <% @sum += (order_product.product.price*1.1).round %></td>
         <td>
