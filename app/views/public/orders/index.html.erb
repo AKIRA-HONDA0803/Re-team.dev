@@ -25,19 +25,13 @@
     		          <%= order.name %>
     		        </td>
     		        <td>
-    		          <% order.order_details.each do |order_product| %>
-    		          	<%= order_details.product.name %><br>
+    		          <% order.order_status.each do |order_product| %>
+    		          	<%= order_status.product.name %><br>
     		          <% end %>
     		        </td>
-    		        <td class="text-right">
-    		          <%= order.bill.to_s(:delimited) %>円
-    		        </td>
-    		        <td>
-    		          <%= order.order_status %>
-    		        </td>
-         	      <td>
-       	          <%= link_to "注文詳細", members_order_path(order), class: "glyphicon glyphicon-zoom-in btn btn-success" %>
-       	        </td>
+    		        <td class="text-right"><%= order.bill.to_s(:delimited) %>円</td>
+    		        <td><%= order.order_status %></td>
+         	      <td><%= link_to "注文詳細", members_order_path(order), class: "glyphicon glyphicon-zoom-in btn btn-success" %> </td>
               </tr>
             <% end %>
           </tbody>

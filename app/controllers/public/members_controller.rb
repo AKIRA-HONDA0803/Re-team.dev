@@ -24,13 +24,6 @@ class Public::MembersController < ApplicationController
  end
 
  def withdraw
-  member = current_member
-   #is_deletedカラムにフラグを立てる(defaultはfalse)
-  member.update(is_deleted: true)
-  #ログアウトさせる
-  reset_session
-  flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-  redirect_to root_path
  end
 
  private
