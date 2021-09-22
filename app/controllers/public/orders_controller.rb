@@ -2,7 +2,8 @@ class Public::OrdersController < ApplicationController
  def new
   @order = Order.new
   @member = current_member
-  @addresses = Address.where(member: current_member)
+  @addresses = current_member.addresses
+  # @addresses = Address.where(member: current_member)
  end
 
  def show
@@ -11,7 +12,8 @@ class Public::OrdersController < ApplicationController
  end
 
  def create
-  @order = current_member.orders.new(order_params)
+  # @order = current_member.orders.new(order_params)
+  @order = Order.new(order_params)
   @order.save
   flash[:notice] = "ご注文を確認しました。"
  end
@@ -21,6 +23,7 @@ class Public::OrdersController < ApplicationController
   @member = current_member
   @addresses = Address.where(member_id: current_member.id)
   @cart_products = current_member.cart_products
+  @order.shipping_fee= 800
  end
 
  def complete
