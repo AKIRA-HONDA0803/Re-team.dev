@@ -29,9 +29,13 @@ class Public::SessionsController < Devise::SessionsController
 
   def reject_user
     @member = Member.find_by(email: params[:member][:email].downcase)
-    if (@member.valid_password?(params[:member][:password]) && (@member.active_for_authentication? == false))
-      flash[:notice] = "退会済みです"
-      redirect_to new_member_session_path
+    if @member
+      if (@member.valid_password?(params[:member][:password]) && (@member.active_for_authentication? == false))
+        flash[:notice] = "退会済みです"
+        redirect_to new_member_session_path
+      else
+        flash[:error] = "必須項目を入力してください。"
+      end
     end
   end
 end

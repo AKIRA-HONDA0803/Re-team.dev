@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-        <%= flash[:notice] %>
         <h2>ログイン</h2>
         <p>会員の方はこちらからログイン</p>
         <%= form_with model: @member, url: member_session_path, local: true do |f| %>
           <%= render "public/shared/error_messages", resource: @member %>
+          <%= flash[:notice] %>
 
           <div class="field">
             <%= f.label :メールアドレス　　　 %>
