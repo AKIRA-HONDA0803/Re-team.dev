@@ -16,7 +16,7 @@
         <tbody>
           <% @sum = 0 %>
           <% @cart_products.each do |cart| %>
-          <% @total_price == (cart.product.price*1.1)*(cart.quantity) %>
+          <!--< @total_price == (cart.product.price*1.1)*(cart.quantity) %>-->
             <tr>
               <td class="text-left">
                 <%= attachment_image_tag( cart.product, :image, size: "60x50" ) %>
@@ -77,7 +77,6 @@
         <%= f.hidden_field :address %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :payment_method %>
-        <%= f.hidden_field :total_price, value: @total_price%>
         <%= link_to "注文情報入力へ戻る", new_order_path, data: {"turbolinks" => false}, class: "btn btn-info col-xs-3 back" %>
         　　<i class="fas fa-shipping-fast fa-2x"></i>
         <%= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
