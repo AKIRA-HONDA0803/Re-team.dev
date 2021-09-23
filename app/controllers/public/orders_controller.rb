@@ -9,20 +9,19 @@ class Public::OrdersController < ApplicationController
 
  def show
   @order = Order.find(params[:id])
-  @order_details = @order.order_details
+  @order_status = @order.order_status
  end
 
  def create
   @order = Order.new(order_params)
+  @order.member = current_member
    if @order.save
   flash[:notice] = "ご注文を確認しました。"
   redirect_to orders_complete_path
+  current_member.cart_products.destroy_all
 
    end
  end
-
-
-
 
  def confirm
   @order = Order.new(order_params)
@@ -45,11 +44,6 @@ class Public::OrdersController < ApplicationController
             @order.address = params[:order][:address]
             @order.name = params[:order][:name]
         end
-
-
-  #「お届け先」は、①ご自身の住所②登録済住所③新しいお届け先のどれかをラジオボタンで選択する分岐
-
-
  end
 
  def complete
@@ -61,7 +55,7 @@ class Public::OrdersController < ApplicationController
 
  private
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method)
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method,:shipping_fee,:bill,:order_status )
   end
   def address_params
     params.require(:order).permit(:postal_code, :address, :name)
