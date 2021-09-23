@@ -13,18 +13,11 @@ class Public::OrdersController < ApplicationController
  end
 
  def create
-  # @order = current_member.orders.new(order_params)
   @order = Order.new(order_params)
    if @order.save
   flash[:notice] = "ご注文を確認しました。"
   redirect_to orders_complete_path
-# ラジオボタンで選択されたお届け先によって条件分岐
 
-
-            # @order.postal_code = params[:order][:postal_code]
-            # @order.address = params[:order][:address]
-
-            # @order.name = params[:order][:name]
    end
  end
 
@@ -34,7 +27,6 @@ class Public::OrdersController < ApplicationController
  def confirm
   @order = Order.new(order_params)
   @member = current_member
-  # @addresses = Address.where(member_id: current_member.id)
   @cart_products = current_member.cart_products
   @order.shipping_fee= 800
   @order.payment_method = params[:order][:payment_method]
