@@ -21,11 +21,11 @@
     		          <%= order.postal_code %><br>
     		          <%= order.address %><br>
     		          <%= order.name %></td>
-    		        <td><%= order.products.name %><br>
+    		        <!--<td><= order.product.name %><br>-->
     		        </td>
-    		        <td class="text-right"><%= order.bill.to_s(:delimited) %>円</td>
+    		        <!--<td class="text-right"><= order.bill.to_s(:delimited) %>円</td>-->
     		        <td><%= order.order_status %></td>
-         	      <td><%= link_to "注文詳細", members_order_path(order), class: "glyphicon glyphicon-zoom-in btn btn-success" %> </td>
+         	      <td><%= link_to "注文詳細", order_path(order), class: "glyphicon glyphicon-zoom-in btn btn-success" %> </td>
               </tr>
             <% end %>
           </tbody>

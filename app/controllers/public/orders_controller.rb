@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
 
  def show
   @order = Order.find(params[:id])
-  @order_details = @order.order_details
+  @order_status = @order.order_status
  end
 
  def create
