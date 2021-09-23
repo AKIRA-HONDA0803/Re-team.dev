@@ -66,7 +66,7 @@ Product.create!(
 
 Product.create!(
   name: "マカロン",
-  description: "マカロン特有の差㏍とした食感をお楽しみください!",
+  description: "マカロン特有のサクッとした食感をお楽しみください!",
   genre_id: 3,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
