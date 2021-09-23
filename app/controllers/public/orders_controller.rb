@@ -16,9 +16,13 @@ class Public::OrdersController < ApplicationController
  def create
   @order = Order.new(order_params)
   @order.member = current_member
+  @cart_products = current_member.cart_products
+
    if @order.save
   flash[:notice] = "ご注文を確認しました。"
   redirect_to orders_complete_path
+
+
 
   cart_products = current_member.cart_products
    cart_products.each do |item|
@@ -31,7 +35,6 @@ class Public::OrdersController < ApplicationController
        order_product.save
       end
        current_member.cart_products.destroy_all
-
    end
  end
 
