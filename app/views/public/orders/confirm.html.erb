@@ -77,6 +77,7 @@
         <%= f.hidden_field :address %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :payment_method %>
+        <%= f.hidden_field :bill, value: @sum + @order.shipping_fee %>
         <%= link_to "注文情報入力へ戻る", new_order_path, data: {"turbolinks" => false}, class: "btn btn-info col-xs-3 back" %>
         　　<i class="fas fa-shipping-fast fa-2x"></i>
         <%= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>

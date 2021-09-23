@@ -18,6 +18,7 @@ class Public::OrdersController < ApplicationController
    if @order.save
   flash[:notice] = "ご注文を確認しました。"
   redirect_to orders_complete_path
+  current_member.cart_products.destroy_all
 
    end
  end
@@ -54,7 +55,7 @@ class Public::OrdersController < ApplicationController
 
  private
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method,:shipping_fee )
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method,:shipping_fee,:bill )
   end
   def address_params
     params.require(:order).permit(:postal_code, :address, :name)
