@@ -47,8 +47,8 @@ Product.create!(
   )
 
 Product.create!(
-  name: "焼き菓子1",
-  description: "1",
+  name: "ナッツ入りクッキー",
+  description: "サクッとした食感とナッツの香ばしさがマッチ‼",
   genre_id: 3,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
@@ -56,8 +56,8 @@ Product.create!(
   )
 
 Product.create!(
-  name: "焼き菓子2",
-  description: "2",
+  name: "マドレーヌ",
+  description: "チョコとプレーンの2個セットでの販売、お得感あり!",
   genre_id: 3,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
@@ -65,8 +65,8 @@ Product.create!(
   )
 
 Product.create!(
-  name: "焼き菓子3",
-  description: "3",
+  name: "マカロン",
+  description: "マカロン特有のサクッとした食感をお楽しみください!",
   genre_id: 3,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
@@ -74,8 +74,8 @@ Product.create!(
   )
 
 Product.create!(
-  name: "ケーキ1",
-  description: "1",
+  name: "抹茶のミルクレープ",
+  description: "何層にも重なる生地と抹茶のハーモニー！",
   genre_id: 1,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
@@ -83,40 +83,40 @@ Product.create!(
   )
 
 Product.create!(
-  name: "ケーキ2",
-  description: "2",
+  name: "チョコレートケーキ",
+  description: "全体に広がるチョコの風味をお楽しみください",
   genre_id: 1,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/cake-2.jpg")
   )
 Product.create!(
-  name: "ケーキ3",
-  description: "1",
+  name: "ティラミス",
+  description: "コーヒーの風味とクリームの甘味をお楽しみに!",
   genre_id: 1,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/cake-3.jpg")
   )
 Product.create!(
-  name: "キャンディ1",
-  description: "1",
+  name: "ロリポップ",
+  description: "カラフルなキャンディになっています",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy1.jpg")
   )
 Product.create!(
-  name: "キャンディ2",
-  description: "2",
+  name: "フルーツキャンディ",
+  description: "果物の味がするキャンディ",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy2.jpg")
   )
 Product.create!(
-  name: "キャンディ3",
-  description: "3",
+  name: "ハート型キャンディ",
+  description: "カラフルなハート形のキャンディです",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
@@ -124,37 +124,52 @@ Product.create!(
   )
 
 Product.create!(
-  name: "キャンディ4",
-  description: "4",
+  name: "ホワイトキャンディ",
+  description: "ホワイトチョコでコーティングしたキャンディです",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy4.jpg")
   )
 Product.create!(
-  name: "キャンディ5",
-  description: "5",
+  name: "チョコキャンディ",
+  description: "ビターチョコの苦みとキャンディの甘さをご堪能ください",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy5.jpg")
   )
 Product.create!(
-  name: "キャンディ6",
-  description: "6",
+  name: "ミニキャンディ",
+  description: "１００gでの販売、お買い得感満載",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy6.jpg")
   )
 Product.create!(
-  name: "キャンディ7",
-  description: "7",
+  name: "フルーツドロップ",
+  description: "お子様にも大人気の商品となっています、ぜひお買い求めください",
   genre_id: 4,
   price: 1000,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy7.jpg")
   )
+
+
+Order.create!(
+    member_id: 1,
+    shipping_fee: 800,
+    bill: 1000,
+    postal_code: "1155",
+    address: "abc@ff",
+    name:"test")
+
+OrderProduct.create!(
+    order_id: 1,
+    product_id: 1,
+    quantity: 10,
+    total_price: 2000)
 
 5.times do |n|
     Member.create!(
