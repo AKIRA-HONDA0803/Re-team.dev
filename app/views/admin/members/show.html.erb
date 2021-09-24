@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mb-5">
   <div class="row mt-5">
-    <div class="col-md-8 offset-md-1">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
       <h1><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</h1>
       <table class="table">
         <tr><th>会員ID</th><th><%= @member.id %></th></tr>
@@ -21,7 +21,7 @@
         </tr>
       </table>
        <%= link_to "編集する", edit_admin_member_path(@member), class: "btn btn-sm btn-success" %>
-       <%= link_to "注文履歴一覧画面を見る", admin_order_path, class: "btn btn-sm btn-primary" %>
+       &emsp;&emsp;<%= link_to "注文履歴一覧画面を見る", admin_order_path, class: "btn btn-sm btn-primary" %>
     </div>
   </div>
 </div>
