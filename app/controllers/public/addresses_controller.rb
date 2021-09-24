@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
 
  def index
     @address = Address.new
-    @addresses = Address.where(member_id: current_member.id)
+    @addresses = current_member.addresses
  end
 
  def create

@@ -33,15 +33,15 @@
         	<table class="table  table-bordered table-condensed">
             <tr>
               <th class="info">商品合計</th>
-              <td class="text-right col-xs-5"><%= @order.bill.to_i - @order.shipping_fee.to_i %>円</td>
+              <td class="text-right col-xs-5"><%= (@order.bill.to_i - @order.shipping_fee.to_i).round.to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
             <tr>
               <th class="info">配送料</th>
-              <td class="text-right col-xs-5"><%= @order.shipping_fee %>円</td>
+              <td class="text-right col-xs-5"><%= @order.shipping_fee.round.to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
             <tr>
               <th class="info">ご請求金額</th>
-              <td class="text-right col-xs-5"><%= @order.bill %>円</td>
+              <td class="text-right col-xs-5"><%= @order.bill.round.to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
         </table>
     </div>
@@ -61,8 +61,8 @@
             <tr>
   	        <td><%= order.product.name %></td>
   	        <td class="text-right"><%= (order.product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</td>
-  	        <td class="text-right"><%= order.quantity %></td>
-  	        <td class="text-right"><%= (order.product.price).to_s(:delimited) %>円</td>
+  	        <td class="text-right"><%= order.quantity.to_s(:delimited, delimiter: ',') %></td>
+  	        <td class="text-right"><%= ((order.product.price*1.1)*order.quantity).round.to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
           <% end %>
           </tbody>
