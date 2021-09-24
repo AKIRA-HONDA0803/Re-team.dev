@@ -21,7 +21,9 @@
           <div class="col-xs-10 radio">
             <%= f.radio_button :select_address, "1" %>
             <%= f.label :select_address,"登録済み住所から選択",value: 1 %><br>
-            <%= f.collection_select(:address_selection, @addresses, :id, :address, include_blank: '選択してください') %>
+            <!--collection_select(オブジェクト名, メソッド名, 要素の配列, value属性の項目, テキストの項目 [, オプション or HTML属性 or イベント属性])-->
+            <%= f.collection_select(:address_selection,@addresses, :id, :address_all, include_blank: '選択してください') %>
+            <!--address_allはaddress.rbで定義した値-->
       </div>
 
           <div class="new-address col-xs-10 radio">
