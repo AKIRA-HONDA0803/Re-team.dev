@@ -50,10 +50,10 @@ class Public::OrdersController < ApplicationController
             @order.address = current_member.address
             @order.name = current_member.last_name + current_member.first_name
         elsif params[:order][:select_address] == "1"
-            @address = Address.find(params[:order][:address_selection])
-            @order.postal_code = @address.postal_code
-            @order.address = @address.address
-            @order.name = @address.name
+            address = Address.find(params[:order][:address_selection])
+            @order.postal_code = address.postal_code
+            @order.address = address.address
+            @order.name = address.name
         elsif params[:order][:select_address] == "2"
             @order.postal_code = params[:order][:postal_code]
             @order.address = params[:order][:address]
@@ -75,4 +75,5 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:order).permit(:postal_code, :address, :name)
   end
+
 end
