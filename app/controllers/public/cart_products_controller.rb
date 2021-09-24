@@ -14,7 +14,7 @@ class Public::CartProductsController < ApplicationController
 
    if @cart_product.save
    flash[:notice] = "#{@cart_product.product.name}をカートに追加しました"
-   redirect_to "/products"
+   redirect_to "/cart_products"
    else
    @product = Product.find(params[:cart_product][:product_id])
    @cart_product = CartProduct.new
