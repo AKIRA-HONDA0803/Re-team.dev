@@ -1,7 +1,4 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row mb-5 mt-5'>
     <div class='col-md-6 offset-md-3 mt-5 h5 text-center'>
-     <div>
       <h4>
        <%= flash[:notice] %>
        <strong>ようこそ、ながのCAKEへ！<br>
@@ -12,30 +9,29 @@
       </h4>
      </div>
     </div>
-<!--<main>-->
-<!--  <div></div>-->
-  <!--<div>-->
-  <!--    <h4><strong>ようこそ、ながのCAKEへ！<br>-->
-  <!--    このサイトは、ケーキ販売のECサイトになります。<br>-->
-  <!--    会員でない方も商品の閲覧はできますが、<br>-->
-  <!--    購入には会員登録が必要になります。-->
-  <!--    </strong></h4>-->
-  <!--  <div>-->
+    <div class="new-product-body">
+     <div class="new-products-cintainer">
      <div class='row'>
-       <h2><strong>新規商品</strong></h2>
-      <div class="top-new-product ">
+       <div class="col-10 offset-lg-2 ">
+       <h2><strong>新規商品</strong></h2><br>
+       <div class="d-flex flex-wrap">
         <% @products.each do |product| %>
+         <div class="card mr-2 mb-2">
           <%= link_to product_path(product.id) do %>
-            <%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %>
+            <%= attachment_image_tag product, :image,:fill, 280, 180, format: 'jpeg',class:"card-img-top"%>
           <% end %>
+
+          <div class="card-body col-lg-8">
           <%= product.name %><br>
-          <%= product.price %>
+          ¥<%= (product.price*1.1).round.to_s(:delimited, delimiter: ',') %>
+           </div>
+            </div>
         <% end %>
-      </div>
      </div>
-  </div>
-   <%= link_to "全ての商品を見る >", products_path %>
+     <p class="text-right">
+     <%= link_to "全ての商品を見る >", products_path %>
+     </p>
+      </div>
 </div>
-
-
-<!--</main>-->
+</div>
+ </div>
