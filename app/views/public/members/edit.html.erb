@@ -2,8 +2,9 @@
     <div class="container">
       <div class="row">
         <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <div class="page-title">
         <h2>会員情報編集</h2>
-
+        </div>
         <%= form_with model: @member, url: members_path, method: :patch, local: true do |f| %>
           <table class="table">
             <tbody>

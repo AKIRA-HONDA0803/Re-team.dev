@@ -1,10 +1,13 @@
  <%= flash[:notice] %>
   <div class="d-flex justify-content-between m-5">
- <h1>ショッピングカート</h1>
- <%= link_to cart_products_destroy_all_path, method: :delete, class: "btn btn-outline-danger" do %>
- <h4 class="text-center">カートを空にする</h4>
- <% end %>
- </div>
+    <div class="page-title">
+     <h2>ショッピングカート</h2>
+     </div>
+     <% unless @cart_pruducts.blank? %>
+        <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class: "btn btn-outline-danger" %>
+      <% end %>
+      </div>
+
  <table class="table table-hover table-inverse">
     <thread>
       <tr>

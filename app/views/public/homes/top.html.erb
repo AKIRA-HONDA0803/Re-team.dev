@@ -1,20 +1,24 @@
    <%= flash[:notice] %>
     <div class='col-md-6 offset-md-3 mt-5 h5 text-center'>
       <h4>
-
-       <strong>ようこそ、ながのCAKEへ！<br>
-        このサイトはケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
+　　　<div class="about-box">
+       <strong><p class="about-box-text">ようこそ、ながのCAKEへ！</p><br>
+        <p>このサイトはケーキ販売のECサイトになります。</p><br>
+        <p>会員でない方も商品の閲覧はできますが、</p><br>
+        <p>購入には会員登録が必要になります。</p>
        </strong>
       </h4>
+     </div>
      </div>
     </div>
     <div class="new-product-body">
      <div class="new-products-cintainer">
-     <div class='row'>
-       <div class="col-10 offset-lg-2 ">
-       <h2><strong>新規商品</strong></h2><br>
+      <div class='row'>
+        <div class="col-10 offset-lg-2 ">
+      <div class="page-title">
+       <h2>新着商品</h2>
+       </div><br>
+
        <div class="d-flex flex-wrap">
         <% @products.each do |product| %>
          <div class="card mr-2 mb-2">
