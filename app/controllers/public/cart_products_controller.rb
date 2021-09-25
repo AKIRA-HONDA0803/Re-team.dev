@@ -13,7 +13,7 @@ class Public::CartProductsController < ApplicationController
    end
 
    if @cart_product.save
-   flash[:notice] = "#{@cart_product.product.name}をカートに追加しました"
+   flash[:notice] = "#{@cart_product.product.name}をカートに追加しました!"
    redirect_to "/cart_products"
    else
    @product = Product.find(params[:cart_product][:product_id])
@@ -26,6 +26,7 @@ class Public::CartProductsController < ApplicationController
  def update
   @cart_product = CartProduct.find(params[:id])
     @cart_product.update(cart_product_params)
+    flash[:notice] = "#{@cart_product.product.name}の個数を#{@cart_product.quantity}個に変更しました!"
    redirect_to cart_products_path
 
  end
