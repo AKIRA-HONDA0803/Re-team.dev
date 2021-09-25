@@ -14,7 +14,8 @@
         <% end %>
        </div>
       <div class="card-body col-lg-8">
-       <strong><%= product.name %></strong><br>
+       <div class="card-text">
+       <strong><%= product.name %></strong></div><br>
        <strong>￥<%= (product.price*1.1).round.to_s(:delimited, delimiter: ',') %></strong><br>
       </div>
       </div>
