@@ -1,22 +1,36 @@
-<div class="page-title">
-<h2>商品詳細</h2>
-</div>
-<div class="row">
-<div class="col-4">
-  <%= attachment_image_tag @product, :image,:fill, 280, 180, format: 'jpeg' %>
-</div>
-<div class="col-8">
-  <%= form_with model: @cart_product,url: cart_products_path, local:true do |f| %>
-  <strong><p>商品名：<%= @product.name %></p></strong>
-  <strong><p>商品説明：<%= @product.description %></p></strong>
-  <strong><p>(税込価格):<%= (@product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</p></strong>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.select :quantity, options_for_select((1..20).to_a) %>
-        <%= f.submit "カートに入れる" %>
-      <% end %>
-</div>
-</div>
-</div>
+<body>
+ <div class="col-lg-10 offset-lg-1 ">
+  <div class="page-title">
+   <h2>商品詳細</h2>
+  </div>
+<% if @product.product_status == true %>
+ <div class="row">
+   <div class="d-flex">
+   <%= attachment_image_tag @product, :image,:fill, 280, 180, format: 'jpeg' %>
+   <div class="col-8">
+    <%= form_with model: @cart_product,url: cart_products_path, local:true do |f| %>
+    <strong><p>商品名：<%= @product.name %></p></strong>
+    <strong><p>商品説明：<%= @product.description %></p></strong>
+    <strong><p>(税込価格):<%= (@product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</p></strong>
+    <%= f.hidden_field :product_id, value: @product.id %>
+    <%= f.select :quantity, options_for_select((1..20).to_a) %>
+    <%= f.submit "カートに入れる" %>
+    <% end %>
+   </div>
+  </div>
 
+  <% else %>
+         <p class="text-center"><strong>大変申し訳ございません。<br>
+         こちらの商品はただいま在庫がございません。<br>
+         恐れ入りますが、他の商品をご選択ください。</strong></p>
+         <%= link_to  products_path do %>
+         <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-outline-secondary w-25 mt-5">買い物を続ける</button><br>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+  </div>
+</body>
 
 
