@@ -18,3 +18,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// $(function() {
+// 	$('body').fadeIn(1000); //1秒かけてフェードイン！
+// });
