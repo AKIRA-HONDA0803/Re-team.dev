@@ -1,23 +1,23 @@
 <body>
-<div class="page-title">
-<h2>商品詳細</h2>
-</div>
-<div class="row">
-<div class="col-4">
-  <%= attachment_image_tag @product, :image,:fill, 280, 180, format: 'jpeg' %>
-</div>
-<div class="col-8">
-  <%= form_with model: @cart_product,url: cart_products_path, local:true do |f| %>
-  <strong><p>商品名：<%= @product.name %></p></strong>
-  <strong><p>商品説明：<%= @product.description %></p></strong>
-  <strong><p>(税込価格):<%= (@product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</p></strong>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.select :quantity, options_for_select((1..20).to_a) %>
-        <%= f.submit "カートに入れる" %>
-      <% end %>
-</div>
-</div>
-</div>
+ <div class="col-10 offset-lg-1 ">
+  <div class="page-title">
+   <h2>商品詳細</h2>
+  </div>
+ <div class="row">
+   <div class="d-flex">
+   <%= attachment_image_tag @product, :image,:fill, 280, 180, format: 'jpeg' %>
+   <div class="col-8">
+    <%= form_with model: @cart_product,url: cart_products_path, local:true do |f| %>
+    <strong><p>商品名：<%= @product.name %></p></strong>
+    <strong><p>商品説明：<%= @product.description %></p></strong>
+    <strong><p>(税込価格):<%= (@product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</p></strong>
+    <%= f.hidden_field :product_id, value: @product.id %>
+    <%= f.select :quantity, options_for_select((1..20).to_a) %>
+    <%= f.submit "カートに入れる" %>
+    <% end %>
+   </div>
+  </div>
+ </div>
 </body>
 
 
