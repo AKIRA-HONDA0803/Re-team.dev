@@ -15,8 +15,8 @@
        </div>
       <div class="card-body col-lg-8">
        <div class="card-text">
-       <strong><span class="wf-hannari"><%= product.name %></span></strong></div><br>
-       <span class="wf-hannari">￥<%= (product.price*1.1).round.to_s(:delimited, delimiter: ',') %></span><br>
+       <strong><%= product.name %></strong></div><br>
+       ￥<%= (product.price*1.08).round.to_s(:delimited, delimiter: ',') %><br>
        </div>
        <% if product.product_status == false %>
        <p class="text-center text-danger wf-hannari"><strong>販売停止中</strong></p>

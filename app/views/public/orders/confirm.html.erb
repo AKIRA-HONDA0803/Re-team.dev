@@ -24,12 +24,12 @@
                 <%= attachment_image_tag( cart.product, :image, size: "60x50" ) %>
                 <%= cart.product.name %></td>
               <td class="text-right">
-                ¥<%= (cart.product.price*1.1).round.to_s(:delimited, delimiter: ',') %></td>
+                ¥<%= (cart.product.price*1.08).round.to_s(:delimited, delimiter: ',') %></td>
               <td class="text-right">
                   <%= cart.quantity %></td>
               <td class="text-right">
-                ¥<%= ((cart.product.price*1.1)*(cart.quantity)).round.to_s(:delimited, delimiter: ',') %>
-                <% @sum += (cart.product.price*1.1)*(cart.quantity).round %></td>
+                ¥<%= ((cart.product.price*1.08)*(cart.quantity)).round.to_s(:delimited, delimiter: ',') %>
+                <% @sum += (cart.product.price*1.08)*(cart.quantity).round %></td>
             </tr>
              <% end %>
         </tbody>

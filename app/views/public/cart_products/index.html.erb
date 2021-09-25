@@ -34,8 +34,8 @@
                  <%= f.submit '変更' %>
                  <% end %>
              </td>
-             <td>￥<%= ((cart_product.product.price*1.1)*(cart_product.quantity)).round.to_s(:delimited, delimiter: ',') %>
-                   <% @sum += (cart_product.product.price*1.1)*(cart_product.quantity).round %>
+             <td>￥<%= ((cart_product.product.price*1.08)*(cart_product.quantity)).round.to_s(:delimited, delimiter: ',') %>
+                   <% @sum += (cart_product.product.price*1.08)*(cart_product.quantity).round %>
              </td>
              <td><%= link_to cart_product_path(cart_product),method: :delete, class: "btn btn-outline-danger" do %>
                  <i class="fas fa-trash"></i>
