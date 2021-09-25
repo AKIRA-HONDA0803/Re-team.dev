@@ -10,16 +10,15 @@
     </strong>
     </h4>
    </div>
-  </div>
-    <div class="new-product-body">
-     <div class="new-products-cintainer">
-      <div class='row'>
-        <div class="col-10 offset-lg-1 ">
+ </div>
+ <div class="new-product-body">
+  <div class="new-products-cintainer">
+   <div class='row'>
+    <div class="col-10 offset-lg-1 ">
       <div class="page-title">
        <h2>新着商品</h2>
-       </div><br>
-
-       <div class="d-flex flex-wrap">
+      </div><br>
+      <div class="d-flex flex-wrap">
         <% @products.each do |product| %>
          <div class="card mr-2 mb-2">
           <%= link_to product_path(product.id) do %>
@@ -27,6 +26,7 @@
           <% end %>
 
           <div class="card-body col-lg-8">
+
           <strong><%= product.name %></strong><br>
          <strong>¥<%= (product.price*1.1).round.to_s(:delimited, delimiter: ',') %></strong>
            </div>
@@ -34,10 +34,10 @@
         <% end %>
      </div>
      <p class="text-right">
-     <%= link_to "全ての商品を見る >", products_path %>
+       <%= link_to "全ての商品を見る >", products_path %>
      </p>
-      </div>
-</div>
-</div>
+   </div>
+  </div>
  </div>
+
 </body>
