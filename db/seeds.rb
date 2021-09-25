@@ -11,22 +11,21 @@ Admin.create!(
 )
 
 Genre.create!(
-  [
-    {
-      name: 'ケーキ'
-    },
-    {
-      name: 'プリン'
-    },
-    {
-      name: '焼き菓子'
-    },
-    {
-      name: 'キャンディ'
-    }
-
-  ]
-)
+      name: 'ケーキ',
+      image: File.open("./app/assets/images/genre-cake.jpg")
+  )
+Genre.create!(
+      name: 'プリン',
+      image: File.open("./app/assets/images/pudding1.jpg")
+  )
+Genre.create!(
+      name: '焼き菓子',
+      image: File.open("./app/assets/images/baked_goods1.jpg")
+  )
+Genre.create!(
+      name: 'キャンディ',
+      image: File.open("./app/assets/images/candy1.jpg")
+  )
 
 Product.create!(
   name: "なめらかプリン",
@@ -174,7 +173,6 @@ OrderProduct.create!(
 5.times do |n|
     Member.create!(
       email: "test#{n + 1}@test.com",
-      name: "テスト太郎#{n + 1}",
       password: "111111",
       first_name: "姓#{n + 1}",
       last_name: "名#{n + 1}",
@@ -183,6 +181,6 @@ OrderProduct.create!(
       postal_code: "0000000",
       address: "大阪市#{n + 1}丁目",
       phone_number: "09000000000",
-      is_deleted: [['有効会員',true],['退会会員',false]]
+      is_deleted: true
     )
   end
