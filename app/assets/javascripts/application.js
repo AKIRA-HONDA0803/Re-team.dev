@@ -14,10 +14,13 @@
 //= require popper
 //= require bootstrap-sprockets
 
+//= require jquery
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
 
 // $(function() {
 // 	$('body').fadeIn(1000); //1秒かけてフェードイン！

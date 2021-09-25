@@ -1,4 +1,6 @@
 class Admin::GenresController < ApplicationController
+ before_action :authenticate_admin!
+
  def index
   @genres = Genre.all
   @genre = Genre.new
@@ -30,7 +32,7 @@ class Admin::GenresController < ApplicationController
  private
 
   def genre_params
-    params.require(:genre).permit(:name, :created_at, :updated_at)
+    params.require(:genre).permit(:name, :created_at, :updated_at, :image)
   end
 
 

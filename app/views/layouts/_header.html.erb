@@ -17,47 +17,47 @@
          ようこそ、<%= current_member.last_name %>さん！
        </li>
        <li class="nav-item text-right">
-         <%= link_to "マイページ", members_my_page_path, class: "btn glyphicon glyphicon-home text-right" %>
+         <%= link_to "マイページ", members_my_page_path, class: "fas fa-user-circle nav-link text-dark text-right" %>
        </li>
        <li class="nav-item">
-         <%= link_to "商品一覧", products_path, class: "btn glyphicon glyphicon-briefcase text-right" %>
+         <%= link_to "商品一覧", products_path, class: "fas fa-cheese nav-link text-dark text-right" %>
        </li>
        <li class="nav-item">
-         <%= link_to "カート", cart_products_path,class: "btn glyphicon glyphicon-shopping-cart text-right" %>
+         <%= link_to "カート", cart_products_path,class: "fas fa-shopping-cart nav-link text-dark text-right" %>
        </li>
        <li class="nav-item">
-         <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn glyphicon glyphicon-log-out text-right" %>
+         <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-dark text-right" %>
        </li>
 
       <%elsif admin_signed_in? %>
        <li class="nav-item">
-         <%= link_to "商品一覧", admin_products_path, class: "header_btn glyphicon glyphicon-briefcase text-right" %>
+         <%= link_to "商品一覧", admin_products_path, class: "fas fa-cheese nav-link text-dark text-right" %>
        </li>
        <li class="nav-item">
-         <%= link_to "会員一覧", admin_members_path, class: "header_btn glyphicon glyphicon-user text-right"  %>
+         <%= link_to "会員一覧", admin_members_path, class: "fas fa-users nav-link text-dark text-right"  %>
        </li>
        <li class="nav-item">
-         <%= link_to "注文履歴一覧", admin_root_path, class: "header_btn glyphicon glyphicon-list-alt text-right" %>
+         <%= link_to "注文履歴一覧", admin_root_path, class: "fas fa-history nav-link text-dark text-right" %>
        </li>
        <li class="nav-item">
-         <%= link_to "ジャンル一覧", admin_genres_path, class: "header_btn glyphicon glyphicon-th-list text-right" %>
+         <%= link_to "ジャンル一覧", admin_genres_path, class: "fas fa-tags nav-link text-dark text-right" %>
        </li>
        <li class="nav-item">
-         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out text-right" %>
+         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-dark text-right" %>
        </li>
 
       <% else %>
        <li class="nav-item">
-         <%= link_to "About", about_path, class: "header_btn glyphicon glyphicon-briefcase text-right" %>
+         <%= link_to "About", about_path, class: "fas fa-link nav-link text-dark" %>
        </li>
        <li class="nav-item">
-         <%= link_to "商品一覧", products_path, class: "header_btn glyphicon glyphicon-briefcase text-right" %>
+         <%= link_to "商品一覧", products_path, class: "fas fa-cheese nav-link text-dark" %>
        </li>
        <li class="nav-item">
-         <%= link_to "新規登録", new_member_registration_path, class: "header_btn glyphicon glyphicon-sign_up text-right" %>
+         <%= link_to "新規登録", new_member_registration_path, class: "fas fa-user-plus nav-link text-darkt" %>
        </li>
        <li class="nav-item">
-         <%= link_to "ログイン", new_member_session_path, class: "header_btn glyphicon glyphicon-log-in text-right" %>
+         <%= link_to "ログイン", new_member_session_path, class: "fas fa-sign-in-alt nav-link text-dark" %>
        </li>
       <% end %>
      </ul>
