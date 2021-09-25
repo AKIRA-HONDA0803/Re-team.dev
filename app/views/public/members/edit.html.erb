@@ -1,9 +1,9 @@
 <body>
-    <div class="container">
-        <div class="mx-auto col-lg-10 ">
+        <div class="col-lg-10 offset-lg-1 ">
         <div class="page-title">
         <h2>会員情報編集</h2>
         </div>
+        <div class="col-lg-9 offset-lg-1">
         <%= form_with model: @member, url: members_path, method: :patch, local: true do |f| %>
           <table class="table">
             <tbody>
@@ -79,5 +79,5 @@
             </table>
           <% end %>
         </div>
-    </div>
+        </div>
 </body>

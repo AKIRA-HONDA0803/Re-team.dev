@@ -1,8 +1,9 @@
 <body>
- <div class="col-10 offset-lg-1 ">
+ <div class="col-lg-10 offset-lg-1 ">
   <div class="page-title">
    <h2>商品詳細</h2>
   </div>
+<% if @product.product_status == true %>
  <div class="row">
    <div class="d-flex">
    <%= attachment_image_tag @product, :image,:fill, 280, 180, format: 'jpeg' %>
@@ -17,7 +18,19 @@
     <% end %>
    </div>
   </div>
- </div>
+
+  <% else %>
+         <p class="text-center"><strong>大変申し訳ございません。<br>
+         こちらの商品はただいま在庫がございません。<br>
+         恐れ入りますが、他の商品をご選択ください。</strong></p>
+         <%= link_to  products_path do %>
+         <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-outline-secondary w-25 mt-5 ml-5">買い物を続ける</button><br>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+  </div>
 </body>
 
 
