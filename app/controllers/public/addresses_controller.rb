@@ -12,7 +12,6 @@ class Public::AddressesController < ApplicationController
       flash.now[:notice] = "新規配送先を登録しました"
       redirect_to addresses_path
     else
-      flash.now[:alert] = "失敗しました"
       @addresses = Address.where(member_id: current_member.id)
       render :index
     end
@@ -42,9 +41,6 @@ class Public::AddressesController < ApplicationController
    render "edit"
   end
  end
-
-
-
 
 
 
