@@ -1,17 +1,17 @@
-# 概要
+README
 ながのケーキ（架空の洋菓子店）　ECサイト
 DMM WEBCAMPのチーム開発課題です。 架空の洋菓子店、「ながのCAKE」の商品を通販するためのECサイトを作成。
 
 # 言語とフレームワーク
 ・Ruby2.6.3
 
-・Rails5.2.5
+・Rails5.2.6
 
 ・HTML5
 
 ・CSS3
 
-・JQuery
+・JavaScript
 
 # 実装機能
 ## 顧客側
@@ -33,9 +33,7 @@ DMM WEBCAMPのチーム開発課題です。 架空の洋菓子店、「なが�
 
 ・検索機能(商品名、ジャンル名）
 
-・トップページに新着商品のスライドショー
-
-## 管理者側
+##　管理者側
 ・ログイン/ログアウト機能
 
 ・注文履歴の一覧/詳細表示機能（注文ステータス, 製作ステータスの切り替えが可能）
@@ -48,8 +46,6 @@ DMM WEBCAMPのチーム開発課題です。 架空の洋菓子店、「なが�
 
 ・商品のジャンル設定機能
 
-・検索機能(商品名、会員名)
-
 # 設計書
 ・ER図
 
@@ -57,8 +53,20 @@ DMM WEBCAMPのチーム開発課題です。 架空の洋菓子店、「なが�
 
 ・アプリケーション詳細設計書
 
-使用したＧＥＭ
-アプリケーション詳細設計書に記載されています。そちらをご覧下さい。
+# Gem
+・devise
+
+・refile
+
+・refile-mini_magick
+
+・bootstrap 4.5
+
+・jquery-rails
+
+・kaminari 1.2.1
+
+・font-awesome-sass 5.13
 
 # 開発メンバー
 
@@ -71,10 +79,3 @@ DMM WEBCAMPのチーム開発課題です。 架空の洋菓子店、「なが�
 ・gen
 
 # 添付書類
-
-[ER図.pdf](https://github.com/dwc-202108-h/naganocake/files/7231009/ER.pdf)
-
-[テーブル定義書.pdf](https://github.com/dwc-202108-h/naganocake/files/7231010/default.pdf)
-
-[アプリケーション詳細設計.pdf](https://github.com/dwc-202108-h/naganocake/files/7231011/default.pdf)
-
