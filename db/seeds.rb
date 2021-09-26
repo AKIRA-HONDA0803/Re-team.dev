@@ -126,7 +126,7 @@ Product.create!(
   name: "ホワイトキャンディ",
   description: "ホワイトチョコでコーティングしたキャンディです",
   genre_id: 4,
-  price: 1000,
+  price: 160,
   product_status: [['販売中',true],['販売停止中',false]],
   image: File.open("./app/assets/images/candy4.jpg")
   )
