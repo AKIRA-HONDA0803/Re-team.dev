@@ -8,19 +8,32 @@
    <tbody>
      <%= form_with model: @address, local: true do |f| %>
     <tr>
-     <td>郵便番号(ハイフンなし）</td>
-     <td><%= f.text_field :postal_code, placeholder: "00000000" %></td><br>
+     <th>郵便番号(ハイフンなし)</th>
+     <th>
+      <div class="field">
+       <%= f.text_field :postal_code, placeholder: "00000000" %>
+      </div>
+     </th>
+     </tr>
+     <tr>
+      <th>住所</th>
+      <th>
+        <div class="field">
+         <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0",:size => "60*60" %>
+        </div>
+      </th>
     </tr>
     <tr>
-     <td>住所</td>
-     <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0",:size => "60*60" %></td><br>
-    </tr>
-    <tr>
-　   <td>宛名</td>
-     <td><%= f.text_field :name, placeholder: "令和道子" %></td>
+　   <th>宛名</th>
+     <th>
+      <div class="field">
+       <%= f.text_field :name, placeholder: "令和道子" %>
+      </div>
+      </th>
      <td><%= f.submit "新規登録", class: "btn btn-success" %>
-      <% end %></td>
-    </tr>
+      </td>
+    </tr><% end %>
+    </tbody>
 
     <table class="table table-bordered mt-5 w-75">
       <therd>

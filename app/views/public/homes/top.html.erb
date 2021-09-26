@@ -25,10 +25,10 @@
             <%= attachment_image_tag product, :image,:fill, 280, 180, format: 'jpeg',class:"card-img-top"%>
           <% end %>
 
-          <div class="card-body col-lg-8">
+          <div class="card-body col-lg-9">
 
           <strong><%= product.name %></strong><br>
-         <strong>¥<%= (product.price*1.1).round.to_s(:delimited, delimiter: ',') %></strong>
+         <strong>¥<%= (product.price*1.08).round.to_s(:delimited, delimiter: ',') %></strong>
            </div>
             </div>
         <% end %>

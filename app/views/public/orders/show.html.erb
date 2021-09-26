@@ -67,9 +67,9 @@
         	<% @orders.each do |order| %>
             <tr>
   	        <td><%= order.product.name %></td>
-  	        <td class="text-right"><%= (order.product.price*1.1).round.to_s(:delimited, delimiter: ',') %>円</td>
+  	        <td class="text-right"><%= (order.product.price*1.08).round.to_s(:delimited, delimiter: ',') %>円</td>
   	        <td class="text-right"><%= order.quantity.to_s(:delimited, delimiter: ',') %></td>
-  	        <td class="text-right"><%= ((order.product.price*1.1)*order.quantity).round.to_s(:delimited, delimiter: ',') %>円</td>
+  	        <td class="text-right"><%= ((order.product.price*1.08)*order.quantity).round.to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
           <% end %>
           </tbody>

@@ -174,13 +174,13 @@ OrderProduct.create!(
     Member.create!(
       email: "test#{n + 1}@test.com",
       password: "111111",
-      first_name: "姓#{n + 1}",
+      first_name: "#{n + 1}木",
       last_name: "名#{n + 1}",
       kana_first_name: "セイ#{n + 1}",
       kana_last_name: "メイ#{n + 1}",
       postal_code: "0000000",
       address: "大阪市#{n + 1}丁目",
       phone_number: "09000000000",
-      is_deleted: true
+      is_deleted: false
     )
   end
