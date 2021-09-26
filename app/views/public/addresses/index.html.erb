@@ -13,34 +13,43 @@
 </div>
   <table style="border:none;">
    <tbody>
-     <%= form_with model: @address, local: true do |f| %>
+     <%= form_with model: @address, url: addresses_path,local: true do |f| %>
     <tr>
-     <th>郵便番号(ハイフンなし)</th>
-     <th>
-      <div class="field">
-       <%= f.text_field :postal_code, placeholder: "00000000" %>
-      </div>
-     </th>
-     </tr>
+     <td>郵便番号(ハイフンなし)</td>
+      <td>
+       <div class="field">
+        <%= f.text_field :postal_code, placeholder: "00000000" %>
+       </div>
+      </td>
+    </tr>
      <tr>
-      <th>住所</th>
-      <th>
+      <td>住所</td>
+       <td>
         <div class="field">
          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0",:size => "60*60" %>
         </div>
-      </th>
-    </tr>
-    <tr>
-　   <th>宛名</th>
-     <th>
-      <div class="field">
-       <%= f.text_field :name, placeholder: "令和道子" %>
-      </div>
-      </th>
-     <td><%= f.submit "新規登録", class: "btn btn-success" %>
+       </td>
+     </tr>
+     <tr>
+　    <td>宛名</td>
+       <td>
+        <div class="field">
+         <%= f.text_field :name, placeholder: "令和道子" %>
+        </div>
+       </td>
+      <tr>
+       <td></td>
+       <td>
+         <div class="field">
+        <%= f.submit "新規登録", class: "btn btn-success" %>
+        </div>
       </td>
-    </tr><% end %>
-    </tbody>
+      <% end %>
+     </tr>
+     </tbody>
+     </table>
+
+
 
     <table class="table table-bordered mt-5 w-75">
       <therd>
