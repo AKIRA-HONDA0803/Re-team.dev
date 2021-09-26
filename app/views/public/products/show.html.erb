@@ -26,16 +26,22 @@
       <% end %>
      </div>
      <% else %>
-         <p class="text-center"><strong>大変申し訳ございません。<br>
-         こちらの商品はただいま在庫がございません。<br>
-         恐れ入りますが、他の商品をご選択ください。</strong></p>
+     <div class="px-3 mx-auto product-show-content ">
+        <div class="bg-mask">
+         <h3 class="text-center mt-5">
+         こちらの商品は好評につき、
+         </h3><br>
+         <strong><h2 class="text-center"><span class="text-danger">売り切れ終了</span>となりました。</h2></strong><br>
+         <p class="text-center">たくさんのお買い上げありがとうございました。</p>
+          </div>
+           </div>
          <%= link_to  products_path do %>
          <div class="d-flex justify-content-center">
        <button type="button" class="btn btn-outline-secondary w-25 mt-5">買い物を続ける</button><br>
       </div>
     <% end %>
   <% end %>
-  </div>
+
   </div>
 </body>
 
