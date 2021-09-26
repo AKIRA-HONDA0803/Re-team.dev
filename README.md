@@ -78,3 +78,10 @@
 ・gen
 
 # 添付書類
+[ER図.pdf](https://github.com/dwc-202108-h/naganocake/files/7231018/ER.pdf)
+
+[テーブル定義書.pdf](https://github.com/dwc-202108-h/naganocake/files/7231019/default.pdf)
+
+[アプリケーション詳細設計.pdf](https://github.com/dwc-202108-h/naganocake/files/7231020/default.pdf)
+
+
