@@ -2,3 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.product-show-content{
+    width: 800px;
+    height: 600px;
+    border : 1px solid #000;
+    position: relative; /*相対位置*/
+    padding : 80px;
+    background-size: cover;
+    background-image: image-url('pien.png')
+ }
+
+.bg-mask {
+  height: 40%;
+  background: rgba(255,255,255,0.5);
+}
