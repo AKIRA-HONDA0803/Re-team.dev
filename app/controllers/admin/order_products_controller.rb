@@ -5,15 +5,19 @@ class Admin::OrderProductsController < ApplicationController
    @order_product = OrderProduct.find(params[:id])
    @maked_products = @order_product.where(making_status: '製作完了')
    @order_product.update(order_product_params)
-
-   if @order_product.making_status == "製作中" && @order_product.order.status == "入金確認"
-      @order_product.order.update(status: "製作中")
-      flash[:success] = "製作ステータスを変更しました"
-   elsif @maked_products.count == @order_items.count
-      @order_product.order.update(status: "発送準備中")
-    redirect_to admin_order_path(@order_product.order_id)
-   end
+    
+    order = @order_product.order
+    @order_products = order.order_products
+    ordered_items_completed = @order_products.where(making_status: "製作完了" )
+    if @order_product.making_status == "製作中"
+      @order_product.order.order_status = "製作中"
+      @order_product.order.save
+    elsif @order_products.count == ordered_items_completed.count
+      @order_product.order.order_status = "発送準備中"
+      @order_product.order.save
+    end
    flash[:success] = "製作ステータスを変更しました"
+
    redirect_to admin_order_path(@order_product.order)
   end
 
