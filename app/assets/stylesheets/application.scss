@@ -18,7 +18,10 @@
 @import 'font-awesome';
 
 
-
+body {
+font-family: 'HanziPen TC',
+sans-serif;
+}
 
 
 .header {
@@ -41,18 +44,6 @@
 .page-title p {
     margin: 0;
     padding: 0;
-}
-
-.wf-hannari { font-family: "Hannari"; }
-
-// body {
-// 	display: none;
-// }
-
-body {
-font-family: 'HanziPen TC',
-sans-serif;
-
 }
 
 .about-content{
