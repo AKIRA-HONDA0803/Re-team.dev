@@ -3,9 +3,8 @@ class Admin::OrderProductsController < ApplicationController
 
   def update
    @order_product = OrderProduct.find(params[:id])
-   @maked_products = @order_product.where(making_status: '製作完了')
    @order_product.update(order_product_params)
-    
+
     order = @order_product.order
     @order_products = order.order_products
     ordered_items_completed = @order_products.where(making_status: "製作完了" )
