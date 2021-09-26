@@ -32,7 +32,7 @@ Product.create!(
   description: "生クリームを使ってコクがしっかりと感じられる絶品プリンです。",
   genre_id: 2,
   price: 280,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/pudding1.jpg")
   )
 
@@ -41,7 +41,7 @@ Product.create!(
   description: "ベリーの酸味と、プリンの甘さが奏でるハーモニー",
   genre_id: 2,
   price: 340,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: false,
   image: File.open("./app/assets/images/pudding2.jpg")
   )
 
@@ -50,7 +50,7 @@ Product.create!(
   description: "サクッとした食感とナッツの香ばしさがマッチ‼",
   genre_id: 3,
   price: 150,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/baked_goods1.jpg")
   )
 
@@ -59,7 +59,7 @@ Product.create!(
   description: "チョコとプレーンの2個セットでの販売、お得感あり!",
   genre_id: 3,
   price: 450,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/baked_goods2.jpg")
   )
 
@@ -68,7 +68,7 @@ Product.create!(
   description: "マカロン特有のサクッとした食感をお楽しみください!",
   genre_id: 3,
   price: 120,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: false,
   image: File.open("./app/assets/images/baked_goods3.jpg")
   )
 
@@ -77,7 +77,7 @@ Product.create!(
   description: "何層にも重なる生地と抹茶のハーモニー！",
   genre_id: 1,
   price: 580,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/cake-1.jpg")
   )
 
@@ -86,7 +86,7 @@ Product.create!(
   description: "全体に広がるチョコの風味をお楽しみください",
   genre_id: 1,
   price: 520,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/cake-2.jpg")
   )
 Product.create!(
@@ -94,7 +94,7 @@ Product.create!(
   description: "コーヒーの風味とクリームの甘味をお楽しみに!",
   genre_id: 1,
   price: 600,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/cake-3.jpg")
   )
 Product.create!(
@@ -102,7 +102,7 @@ Product.create!(
   description: "カラフルなキャンディになっています",
   genre_id: 4,
   price: 160,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true,
   image: File.open("./app/assets/images/candy1.jpg")
   )
 Product.create!(
@@ -110,7 +110,7 @@ Product.create!(
   description: "果物の味がするキャンディ 100g当たりの値段です",
   genre_id: 4,
   price: 160,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: false ,
   image: File.open("./app/assets/images/candy2.jpg")
   )
 Product.create!(
@@ -118,7 +118,7 @@ Product.create!(
   description: "カラフルなハート形のキャンディです",
   genre_id: 4,
   price: 150,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: true ,
   image: File.open("./app/assets/images/candy3.jpg")
   )
 
@@ -127,7 +127,7 @@ Product.create!(
   description: "ホワイトチョコでコーティングしたキャンディです",
   genre_id: 4,
   price: 160,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status: false,
   image: File.open("./app/assets/images/candy4.jpg")
   )
 Product.create!(
@@ -135,7 +135,7 @@ Product.create!(
   description: "ビターチョコの苦みとキャンディの甘さをご堪能ください",
   genre_id: 4,
   price: 140,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status:  true,
   image: File.open("./app/assets/images/candy5.jpg")
   )
 Product.create!(
@@ -143,7 +143,7 @@ Product.create!(
   description: "１００gでの販売、お買い得感満載",
   genre_id: 4,
   price: 160,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status:  true,
   image: File.open("./app/assets/images/candy6.jpg")
   )
 Product.create!(
@@ -151,7 +151,7 @@ Product.create!(
   description: "お子様にも大人気の商品となっています、ぜひお買い求めください",
   genre_id: 4,
   price: 240,
-  product_status: [['販売中',true],['販売停止中',false]],
+  product_status:  true,
   image: File.open("./app/assets/images/candy7.jpg")
   )
 
@@ -172,15 +172,15 @@ OrderProduct.create!(
 
 5.times do |n|
     Member.create!(
-      email: "test#{n + 1}@test.com",
+      email: "naganotest#{n + 1}@co.jp",
       password: "111111",
-      first_name: "#{n + 1}木",
-      last_name: "名#{n + 1}",
-      kana_first_name: "セイ#{n + 1}",
-      kana_last_name: "メイ#{n + 1}",
-      postal_code: "0000000",
-      address: "大阪市#{n + 1}丁目",
-      phone_number: "09000000000",
+      first_name: "鈴木",
+      last_name: "一郎#{n + 1}",
+      kana_first_name: "スズキ",
+      kana_last_name: "イチロウ#{n + 1}",
+      postal_code: "5300011",
+      address: "大阪府大阪市北区大深町グランフロント大阪レプリカ#{n + 1}階",
+      phone_number: "0690908787",
       is_deleted: false
     )
   end
