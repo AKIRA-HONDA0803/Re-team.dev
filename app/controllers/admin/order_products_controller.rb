@@ -3,7 +3,9 @@ class Admin::OrderProductsController < ApplicationController
 
   def update
    @order_product = OrderProduct.find(params[:id])
+   @maked_products = @order_product.where(making_status: '製作完了')
    @order_product.update(order_product_params)
+    
     order = @order_product.order
     @order_products = order.order_products
     ordered_items_completed = @order_products.where(making_status: "製作完了" )
@@ -14,6 +16,8 @@ class Admin::OrderProductsController < ApplicationController
       @order_product.order.order_status = "発送準備中"
       @order_product.order.save
     end
+   flash[:success] = "製作ステータスを変更しました"
+
    redirect_to admin_order_path(@order_product.order)
   end
 
