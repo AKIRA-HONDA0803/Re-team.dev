@@ -1,0 +1,83 @@
+       <body>
+        <div class="col-lg-10 offset-lg-1 ">
+        <div class="page-title">
+        <h2>会員情報編集</h2>
+        </div>
+        <div class="col-lg-9 offset-lg-1">
+        <%= form_with model: @member, url: members_path, method: :patch, local: true do |f| %>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>名前　　　　　　　　　　　</td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" %>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :first_name, autocomplete: "given-name" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>フリガナ</td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :kana_last_name, autocomplete: "family-name" %>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :kana_first_name, autocomplete: "given-name" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>郵便番号</td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :postal_code, autocomplete: "postal-code" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>住所</td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :address, autocomplete: "address-line1" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td>
+                  <div class="field">
+                    <%= f.telephone_field :phone_number, autocomplete: "tel-national" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td>
+                  <div class="field">
+                    <%= f.email_field :email, autocomplete: "email" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <div class="actions">
+                    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+                  </div>
+                </td>
+                <td>
+                  <%= link_to "退会する", members_unsubscribe_path, class: "btn btn-danger" %>
+                </td>
+              </tr>
+            </table>
+          <% end %>
+        </div>
+        </div>
+        </body>

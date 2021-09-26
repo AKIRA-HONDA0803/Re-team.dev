@@ -2,14 +2,28 @@
 <html>
   <head>
     <title>Naganocake</title>
+    <%= favicon_link_tag('favicon1.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <!--<div id="container">-->
+  <!--  <div id="images">-->
+  <!--    <div class="image1"></div>-->
+  <!--    <div class="image2"></div>-->
+  <!--    <div class="image3"></div>-->
+  <!--    <div class="image4"></div>-->
+  <!--    <div class="image5"></div>-->
+  <!--  </div>-->
+  <!--</div>-->
+
+
+  <body class="bg-light">
+    <%= render "layouts/header" %>
     <%= yield %>
+   <%= render 'layouts/footer' %>
   </body>
+
 </html>

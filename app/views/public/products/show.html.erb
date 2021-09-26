@@ -1,0 +1,48 @@
+<body>
+ <div class="col-lg-10 offset-lg-1 ">
+  <div class="page-title">
+   <h2>商品詳細</h2>
+  </div>
+   <div class="col-lg-10 offset-lg-1">
+    <% if @product.product_status == true %>
+     <div class="card text-center">
+       <div class="card-header">
+        <strong><h2><%= @product.name %></h2></strong>
+       </div>
+        <div class="card-body">
+        <h5 class="card-title"><%= attachment_image_tag @product, :image,:fill, 900, 480, format: 'jpeg' %></h5>
+        <p class="card-text"></p>
+        </div>
+         <div class="card-footer text-muted">
+         <strong><h3><%= @product.description %></h3></strong>
+         <strong><h4>(税込価格):<%= (@product.price*1.08).round.to_s(:delimited, delimiter: ',') %>円</h4></strong>
+         </div>
+     </div>
+     <div class="d-flex justify-content-end mt-4 mb-4">
+      <%= form_with model: @cart_product,url: cart_products_path, local:true do |f| %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.select :quantity, options_for_select((1..20).to_a) %>
+      <%= f.submit "カートに入れる" %>
+      <% end %>
+     </div>
+     <% else %>
+     <div class="px-3 mx-auto product-show-content ">
+        <div class="bg-mask">
+         <h3 class="text-center mt-5">
+         こちらの商品は好評につき、
+         </h3><br>
+         <strong><h2 class="text-center"><span class="text-danger">売り切れ終了</span>となりました。</h2></strong><br>
+         <p class="text-center">たくさんのお買い上げありがとうございました。</p>
+          </div>
+           </div>
+         <%= link_to  products_path do %>
+         <div class="d-flex justify-content-center">
+       <button type="button" class="btn btn-outline-secondary w-25 mt-5">買い物を続ける</button><br>
+      </div>
+    <% end %>
+  <% end %>
+
+  </div>
+</body>
+
+
